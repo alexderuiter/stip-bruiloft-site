@@ -7,155 +7,119 @@
   <!-- ============================================================
        AANPASSEN: Verander de titelbalk van de browsertab
        ============================================================ -->
-  <title>Emma &amp; Liam — 14 juni 2026</title>
+  <title>Amela &amp; Henrik — 14 juni 2026</title>
 
-  <!-- Google Fonts: elegante lettertypes -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet" />
 
   <style>
-    /* ===================== KLEURENPALET =====================
-       Wil je andere kleuren? Pas de variabelen hieronder aan.
-       ======================================================= */
+    /* ===================== KLEURENPALET ===================== */
     :root {
-      --kleur-achtergrond: #fdf8f4;
-      --kleur-accent:      #c8a97e;   /* goud */
-      --kleur-donker:      #4a3f35;   /* warme bruin-zwart */
-      --kleur-licht:       #f5ede4;   /* zacht roze/crème */
+      --kleur-achtergrond: #f7f3ee;
+      --kleur-accent:      #b8976a;   /* champagne */
+      --kleur-donker:      #2c2622;   /* warm donker */
+      --kleur-licht:       #f0ebe4;   /* licht champagne */
       --kleur-wit:         #ffffff;
-      --kleur-tekst:       #5c4f44;
+      --kleur-tekst:       #4a423a;
+      --kleur-muted:       #8a7e72;
+      --kleur-border:      #e2dbd2;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      font-family: 'Lato', sans-serif;
+      font-family: Georgia, 'Times New Roman', serif;
       background-color: var(--kleur-achtergrond);
       color: var(--kleur-tekst);
-      font-weight: 300;
+      font-weight: 400;
+      padding: 1.5rem;
     }
 
-    /* --------- NAVIGATIE --------- */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      background: rgba(253, 248, 244, 0.92);
-      backdrop-filter: blur(6px);
-      border-bottom: 1px solid rgba(200, 169, 126, 0.25);
-      display: flex;
-      justify-content: center;
-      gap: 2.5rem;
-      padding: 1rem 2rem;
+    .kaart-wrapper {
+      max-width: 720px;
+      margin: 0 auto;
+      background: var(--kleur-wit);
+      border: 1px solid var(--kleur-border);
+      border-radius: 18px;
+      overflow: hidden;
     }
-    nav a {
-      text-decoration: none;
-      color: var(--kleur-donker);
-      font-size: 0.8rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      transition: color 0.2s;
-    }
-    nav a:hover { color: var(--kleur-accent); }
 
     /* --------- HERO --------- */
     #home {
-      min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
       text-align: center;
-      padding: 6rem 2rem 4rem;
-      background:
-        radial-gradient(ellipse at 20% 50%, rgba(200,169,126,0.08) 0%, transparent 60%),
-        radial-gradient(ellipse at 80% 20%, rgba(200,169,126,0.06) 0%, transparent 50%),
-        var(--kleur-achtergrond);
+      padding: 2rem 1.5rem 1.5rem;
     }
 
-    .hero-ornament {
-      font-size: 1.5rem;
-      color: var(--kleur-accent);
-      letter-spacing: 0.5rem;
-      margin-bottom: 1.5rem;
+    .hero-foto {
+      width: 100%;
+      margin-bottom: 2rem;
+      overflow: hidden;
+      border-radius: 12px;
+    }
+    .hero-foto img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
     }
 
-    /* ============================================================
-       AANPASSEN: Verander hier de namen van het bruidspaar
-       ============================================================ */
     h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(3rem, 10vw, 7rem);
-      font-weight: 300;
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: clamp(1.8rem, 6vw, 2.8rem);
+      font-weight: 400;
       color: var(--kleur-donker);
-      line-height: 1.1;
-      letter-spacing: 0.02em;
-    }
-    h1 em {
-      font-style: italic;
-      color: var(--kleur-accent);
+      line-height: 1.3;
     }
 
     .hero-datum {
-      margin-top: 2rem;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.2rem;
-      letter-spacing: 0.25em;
+      margin-top: 1rem;
+      font-family: -apple-system, system-ui, sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: var(--kleur-accent);
+      color: var(--kleur-muted);
     }
 
-    /* ============================================================
-       AANPASSEN: Korte welkomstboodschap onder de namen
-       ============================================================ */
     .hero-tekst {
-      margin-top: 1.5rem;
-      max-width: 500px;
-      font-size: 1.05rem;
-      line-height: 1.8;
+      margin-top: 1rem;
+      max-width: 440px;
+      font-size: 0.95rem;
+      line-height: 1.7;
       color: var(--kleur-tekst);
     }
 
-    .divider {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-      margin: 4rem auto;
-      max-width: 300px;
-    }
-    .divider::before, .divider::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--kleur-accent);
-      opacity: 0.5;
-    }
-    .divider-icon { color: var(--kleur-accent); font-size: 1rem; }
-
     /* --------- SECTIES --------- */
+    .sectie-divider {
+      height: 1px;
+      background: var(--kleur-border);
+      margin: 0 1.5rem;
+    }
+
     section {
-      padding: 5rem 2rem;
-      max-width: 860px;
-      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+    @media (max-width: 400px) {
+      section { padding: 1.5rem 1rem; }
     }
 
     .sectie-label {
       text-align: center;
-      font-size: 0.75rem;
-      letter-spacing: 0.25em;
+      font-family: -apple-system, system-ui, sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--kleur-accent);
-      margin-bottom: 0.75rem;
+      color: var(--kleur-muted);
+      margin-bottom: 0.5rem;
     }
 
     h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2rem, 5vw, 3rem);
-      font-weight: 300;
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: clamp(1.4rem, 4vw, 1.8rem);
+      font-weight: 400;
       color: var(--kleur-donker);
       text-align: center;
-      margin-bottom: 3rem;
+      margin-bottom: 1.5rem;
     }
 
     /* --------- PROGRAMMA --------- */
@@ -166,19 +130,22 @@
     }
     .programma-item {
       display: grid;
-      grid-template-columns: 90px 1px 1fr;
-      gap: 0 1.5rem;
+      grid-template-columns: 70px 1px 1fr;
+      gap: 0 1rem;
       align-items: stretch;
-      padding: 0 0 2.5rem;
+      padding: 0 0 2rem;
+    }
+    @media (max-width: 400px) {
+      .programma-item { grid-template-columns: 55px 1px 1fr; gap: 0 0.75rem; }
     }
     .programma-item:last-child { padding-bottom: 0; }
 
     .programma-tijd {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.1rem;
-      color: var(--kleur-accent);
+      font-family: -apple-system, system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: var(--kleur-muted);
       text-align: right;
-      padding-top: 0.15rem;
+      padding-top: 0.2rem;
     }
     .programma-lijn {
       width: 1px;
@@ -210,8 +177,9 @@
     }
 
     /* --------- LOCATIE --------- */
-    #locatie { background: var(--kleur-licht); max-width: 100%; padding: 5rem 2rem; }
-    #locatie .inner { max-width: 860px; margin: 0 auto; }
+    #locatie { background: var(--kleur-wit); max-width: 100%; padding: 2rem 1.5rem; }
+    @media (max-width: 400px) { #locatie { padding: 1.5rem 1rem; } }
+    #locatie .inner { max-width: 100%; margin: 0 auto; }
 
     .locatie-grid {
       display: grid;
@@ -227,8 +195,8 @@
        AANPASSEN: Locatiegegevens
        ============================================================ */
     .locatie-info h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.6rem;
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 1.3rem;
       font-weight: 400;
       color: var(--kleur-donker);
       margin-bottom: 0.75rem;
@@ -240,18 +208,19 @@
     }
     .locatie-knop {
       display: inline-block;
-      padding: 0.65rem 1.5rem;
-      border: 1px solid var(--kleur-accent);
+      padding: 0.5rem 1.25rem;
+      border: 1px solid var(--kleur-border);
+      border-radius: 999px;
       color: var(--kleur-accent);
       text-decoration: none;
+      font-family: -apple-system, system-ui, sans-serif;
       font-size: 0.8rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
       transition: all 0.2s;
     }
     .locatie-knop:hover {
       background: var(--kleur-accent);
       color: var(--kleur-wit);
+      border-color: var(--kleur-accent);
     }
 
     /* ============================================================
@@ -261,75 +230,75 @@
        ============================================================ */
     .kaart iframe {
       width: 100%;
-      height: 280px;
+      height: 240px;
       border: none;
-      border-radius: 2px;
-      filter: sepia(20%) contrast(0.9);
+      border-radius: 12px;
     }
 
     /* --------- DRESSCODE --------- */
     .dresscode-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: 1fr;
+      gap: 1rem;
       text-align: center;
+    }
+    @media (min-width: 600px) {
+      .dresscode-grid { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
     }
     .dresscode-kaart {
       background: var(--kleur-licht);
-      padding: 2rem 1.5rem;
+      padding: 1.25rem 1rem;
+      border-radius: 12px;
     }
-    .dresscode-icoon { font-size: 2rem; margin-bottom: 1rem; }
     .dresscode-kaart h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.2rem;
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 1.05rem;
+      font-weight: 400;
       color: var(--kleur-donker);
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.4rem;
     }
-    .dresscode-kaart p { font-size: 0.9rem; line-height: 1.7; opacity: 0.8; }
+    .dresscode-kaart p { font-size: 0.88rem; line-height: 1.6; color: var(--kleur-muted); }
 
     /* --------- RSVP --------- */
-    #rsvp { background: var(--kleur-donker); max-width: 100%; padding: 5rem 2rem; }
-    #rsvp .inner { max-width: 600px; margin: 0 auto; text-align: center; }
-    #rsvp .sectie-label { color: rgba(200,169,126,0.7); }
-    #rsvp h2 { color: var(--kleur-achtergrond); }
+    #rsvp { background: var(--kleur-wit); max-width: 100%; padding: 2rem 1.5rem; }
+    @media (max-width: 400px) { #rsvp { padding: 1.5rem 1rem; } }
+    #rsvp .inner { max-width: 100%; margin: 0 auto; text-align: center; }
+    #rsvp .sectie-label { color: var(--kleur-muted); }
+    #rsvp h2 { color: var(--kleur-donker); }
     #rsvp p {
-      color: rgba(253,248,244,0.75);
-      line-height: 1.9;
-      margin-bottom: 2.5rem;
+      color: var(--kleur-tekst);
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
     }
 
-    /* ============================================================
-       AANPASSEN: Vervang het e-mailadres hieronder door jullie eigen adres
-       ============================================================ */
     .rsvp-knop {
       display: inline-block;
-      padding: 1rem 2.5rem;
+      padding: 0.7rem 1.8rem;
       background: var(--kleur-accent);
       color: var(--kleur-wit);
       text-decoration: none;
-      font-size: 0.85rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
+      font-family: -apple-system, system-ui, sans-serif;
+      font-size: 0.8rem;
+      border-radius: 999px;
       transition: opacity 0.2s;
     }
     .rsvp-knop:hover { opacity: 0.85; }
 
     .rsvp-deadline {
-      margin-top: 1.5rem;
-      font-size: 0.85rem;
-      color: rgba(253,248,244,0.45);
-      letter-spacing: 0.05em;
+      margin-top: 1rem;
+      font-family: -apple-system, system-ui, sans-serif;
+      font-size: 0.78rem;
+      color: var(--kleur-muted);
     }
 
     /* --------- FOOTER --------- */
     footer {
       text-align: center;
-      padding: 2.5rem 1rem;
-      font-family: 'Cormorant Garamond', serif;
+      padding: 1.5rem 1rem;
       font-style: italic;
-      font-size: 1.1rem;
-      color: var(--kleur-accent);
-      background: var(--kleur-achtergrond);
+      font-size: 0.95rem;
+      color: var(--kleur-muted);
     }
 
     /* --------- SMOOTH SCROLL --------- */
@@ -338,23 +307,21 @@
 </head>
 <body>
 
-  <!-- ===== NAVIGATIE ===== -->
-  <nav>
-    <a href="#home">Thuis</a>
-    <a href="#programma">Programma</a>
-    <a href="#locatie">Locatie</a>
-    <a href="#dresscode">Dresscode</a>
-    <a href="#rsvp">RSVP</a>
-  </nav>
+  <div class="kaart-wrapper">
 
   <!-- ===== HERO ===== -->
   <section id="home">
-    <div class="hero-ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+    <!-- ============================================================
+         AANPASSEN: Vervang src hieronder door jullie eigen foto
+         ============================================================ -->
+    <div class="hero-foto">
+      <img src="https://placehold.co/960x640/e8ddd3/8a7a6a?text=Jullie+Foto" alt="Foto bruidspaar" />
+    </div>
 
     <!-- ============================================================
          AANPASSEN: Namen bruidspaar
          ============================================================ -->
-    <h1>Emma<br />&amp;<br /><em>Liam</em></h1>
+    <h1>Amela &amp; Henrik</h1>
 
     <!-- ============================================================
          AANPASSEN: Datum van de bruiloft
@@ -369,6 +336,8 @@
       omringd door de mensen die ons het meest dierbaar zijn.
     </p>
   </section>
+
+  <div class="sectie-divider"></div>
 
   <!-- ===== PROGRAMMA ===== -->
   <section id="programma">
@@ -422,6 +391,8 @@
     </ul>
   </section>
 
+  <div class="sectie-divider"></div>
+
   <!-- ===== LOCATIE ===== -->
   <div id="locatie">
     <div class="inner">
@@ -471,6 +442,8 @@
     </div>
   </div>
 
+  <div class="sectie-divider"></div>
+
   <!-- ===== DRESSCODE ===== -->
   <section id="dresscode">
     <p class="sectie-label">Wat aantrekken</p>
@@ -482,22 +455,21 @@
          ============================================================ -->
     <div class="dresscode-grid">
       <div class="dresscode-kaart">
-        <div class="dresscode-icoon">👗</div>
         <h3>Thema</h3>
         <p>Chique gelegenheidskledij — cocktailjurken en pakken zijn van harte welkom</p>
       </div>
       <div class="dresscode-kaart">
-        <div class="dresscode-icoon">🎨</div>
         <h3>Kleurenpalet</h3>
         <p>Wij vragen gasten om wit en creme te vermijden. Pastelkleuren en warme tinten zijn prachtig!</p>
       </div>
       <div class="dresscode-kaart">
-        <div class="dresscode-icoon">👠</div>
         <h3>Praktisch</h3>
         <p>De ceremonie vindt deels buiten plaats — draag schoenen waar je comfortabel in loopt op gras</p>
       </div>
     </div>
   </section>
+
+  <div class="sectie-divider"></div>
 
   <!-- ===== RSVP ===== -->
   <div id="rsvp">
@@ -517,7 +489,7 @@
       <!-- ============================================================
            AANPASSEN: Vervang het e-mailadres hieronder
            ============================================================ -->
-      <a class="rsvp-knop" href="mailto:bruiloft@voorbeeld.nl?subject=RSVP%20Emma%20%26%20Liam">
+      <a class="rsvp-knop" href="mailto:bruiloft@voorbeeld.nl?subject=RSVP%20Amela%20%26%20Henrik">
         Aanmelden via e-mail
       </a>
 
@@ -527,8 +499,10 @@
 
   <!-- ===== FOOTER ===== -->
   <footer>
-    Wij kunnen niet wachten om dit met jou te vieren &nbsp;♥
+    Wij kunnen niet wachten om dit met jou te vieren
   </footer>
+
+  </div><!-- .kaart-wrapper -->
 
 </body>
 </html>
