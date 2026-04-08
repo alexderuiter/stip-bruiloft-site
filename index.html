@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ============================================================
+       AANPASSEN: Verander de titelbalk van de browsertab
+       ============================================================ -->
+  <title>Emma &amp; Liam — 14 juni 2026</title>
+
+  <!-- Google Fonts: elegante lettertypes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ===================== KLEURENPALET =====================
+       Wil je andere kleuren? Pas de variabelen hieronder aan.
+       ======================================================= */
+    :root {
+      --kleur-achtergrond: #fdf8f4;
+      --kleur-accent:      #c8a97e;   /* goud */
+      --kleur-donker:      #4a3f35;   /* warme bruin-zwart */
+      --kleur-licht:       #f5ede4;   /* zacht roze/crème */
+      --kleur-wit:         #ffffff;
+      --kleur-tekst:       #5c4f44;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      background-color: var(--kleur-achtergrond);
+      color: var(--kleur-tekst);
+      font-weight: 300;
+    }
+
+    /* --------- NAVIGATIE --------- */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(253, 248, 244, 0.92);
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid rgba(200, 169, 126, 0.25);
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+      padding: 1rem 2rem;
+    }
+    nav a {
+      text-decoration: none;
+      color: var(--kleur-donker);
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    nav a:hover { color: var(--kleur-accent); }
+
+    /* --------- HERO --------- */
+    #home {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 6rem 2rem 4rem;
+      background:
+        radial-gradient(ellipse at 20% 50%, rgba(200,169,126,0.08) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 20%, rgba(200,169,126,0.06) 0%, transparent 50%),
+        var(--kleur-achtergrond);
+    }
+
+    .hero-ornament {
+      font-size: 1.5rem;
+      color: var(--kleur-accent);
+      letter-spacing: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ============================================================
+       AANPASSEN: Verander hier de namen van het bruidspaar
+       ============================================================ */
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 10vw, 7rem);
+      font-weight: 300;
+      color: var(--kleur-donker);
+      line-height: 1.1;
+      letter-spacing: 0.02em;
+    }
+    h1 em {
+      font-style: italic;
+      color: var(--kleur-accent);
+    }
+
+    .hero-datum {
+      margin-top: 2rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--kleur-accent);
+    }
+
+    /* ============================================================
+       AANPASSEN: Korte welkomstboodschap onder de namen
+       ============================================================ */
+    .hero-tekst {
+      margin-top: 1.5rem;
+      max-width: 500px;
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--kleur-tekst);
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin: 4rem auto;
+      max-width: 300px;
+    }
+    .divider::before, .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--kleur-accent);
+      opacity: 0.5;
+    }
+    .divider-icon { color: var(--kleur-accent); font-size: 1rem; }
+
+    /* --------- SECTIES --------- */
+    section {
+      padding: 5rem 2rem;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .sectie-label {
+      text-align: center;
+      font-size: 0.75rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--kleur-accent);
+      margin-bottom: 0.75rem;
+    }
+
+    h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 300;
+      color: var(--kleur-donker);
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    /* --------- PROGRAMMA --------- */
+    .programma-lijst {
+      list-style: none;
+      display: grid;
+      gap: 0;
+    }
+    .programma-item {
+      display: grid;
+      grid-template-columns: 90px 1px 1fr;
+      gap: 0 1.5rem;
+      align-items: stretch;
+      padding: 0 0 2.5rem;
+    }
+    .programma-item:last-child { padding-bottom: 0; }
+
+    .programma-tijd {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      color: var(--kleur-accent);
+      text-align: right;
+      padding-top: 0.15rem;
+    }
+    .programma-lijn {
+      width: 1px;
+      background: linear-gradient(to bottom, var(--kleur-accent), rgba(200,169,126,0.15));
+      position: relative;
+      flex-shrink: 0;
+    }
+    .programma-lijn::before {
+      content: '';
+      position: absolute;
+      top: 0.35rem; left: 50%;
+      transform: translateX(-50%);
+      width: 9px; height: 9px;
+      border-radius: 50%;
+      background: var(--kleur-accent);
+      border: 2px solid var(--kleur-achtergrond);
+    }
+    .programma-info { padding: 0 0 0 0.5rem; }
+    .programma-naam {
+      font-weight: 400;
+      color: var(--kleur-donker);
+      margin-bottom: 0.25rem;
+    }
+    .programma-omschrijving {
+      font-size: 0.92rem;
+      color: var(--kleur-tekst);
+      opacity: 0.75;
+      line-height: 1.6;
+    }
+
+    /* --------- LOCATIE --------- */
+    #locatie { background: var(--kleur-licht); max-width: 100%; padding: 5rem 2rem; }
+    #locatie .inner { max-width: 860px; margin: 0 auto; }
+
+    .locatie-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    @media (max-width: 620px) {
+      .locatie-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ============================================================
+       AANPASSEN: Locatiegegevens
+       ============================================================ */
+    .locatie-info h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 400;
+      color: var(--kleur-donker);
+      margin-bottom: 0.75rem;
+    }
+    .locatie-info p {
+      font-size: 0.95rem;
+      line-height: 1.9;
+      margin-bottom: 1.25rem;
+    }
+    .locatie-knop {
+      display: inline-block;
+      padding: 0.65rem 1.5rem;
+      border: 1px solid var(--kleur-accent);
+      color: var(--kleur-accent);
+      text-decoration: none;
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: all 0.2s;
+    }
+    .locatie-knop:hover {
+      background: var(--kleur-accent);
+      color: var(--kleur-wit);
+    }
+
+    /* ============================================================
+       AANPASSEN: Vervang de src-link hieronder door jouw locatie.
+       Ga naar maps.google.com, zoek je locatie, klik 'Delen' →
+       'Een kaart insluiten' en kopieer de src-URL.
+       ============================================================ */
+    .kaart iframe {
+      width: 100%;
+      height: 280px;
+      border: none;
+      border-radius: 2px;
+      filter: sepia(20%) contrast(0.9);
+    }
+
+    /* --------- DRESSCODE --------- */
+    .dresscode-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      text-align: center;
+    }
+    .dresscode-kaart {
+      background: var(--kleur-licht);
+      padding: 2rem 1.5rem;
+    }
+    .dresscode-icoon { font-size: 2rem; margin-bottom: 1rem; }
+    .dresscode-kaart h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      color: var(--kleur-donker);
+      margin-bottom: 0.5rem;
+    }
+    .dresscode-kaart p { font-size: 0.9rem; line-height: 1.7; opacity: 0.8; }
+
+    /* --------- RSVP --------- */
+    #rsvp { background: var(--kleur-donker); max-width: 100%; padding: 5rem 2rem; }
+    #rsvp .inner { max-width: 600px; margin: 0 auto; text-align: center; }
+    #rsvp .sectie-label { color: rgba(200,169,126,0.7); }
+    #rsvp h2 { color: var(--kleur-achtergrond); }
+    #rsvp p {
+      color: rgba(253,248,244,0.75);
+      line-height: 1.9;
+      margin-bottom: 2.5rem;
+    }
+
+    /* ============================================================
+       AANPASSEN: Vervang het e-mailadres hieronder door jullie eigen adres
+       ============================================================ */
+    .rsvp-knop {
+      display: inline-block;
+      padding: 1rem 2.5rem;
+      background: var(--kleur-accent);
+      color: var(--kleur-wit);
+      text-decoration: none;
+      font-size: 0.85rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      transition: opacity 0.2s;
+    }
+    .rsvp-knop:hover { opacity: 0.85; }
+
+    .rsvp-deadline {
+      margin-top: 1.5rem;
+      font-size: 0.85rem;
+      color: rgba(253,248,244,0.45);
+      letter-spacing: 0.05em;
+    }
+
+    /* --------- FOOTER --------- */
+    footer {
+      text-align: center;
+      padding: 2.5rem 1rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.1rem;
+      color: var(--kleur-accent);
+      background: var(--kleur-achtergrond);
+    }
+
+    /* --------- SMOOTH SCROLL --------- */
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAVIGATIE ===== -->
+  <nav>
+    <a href="#home">Thuis</a>
+    <a href="#programma">Programma</a>
+    <a href="#locatie">Locatie</a>
+    <a href="#dresscode">Dresscode</a>
+    <a href="#rsvp">RSVP</a>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section id="home">
+    <div class="hero-ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+
+    <!-- ============================================================
+         AANPASSEN: Namen bruidspaar
+         ============================================================ -->
+    <h1>Emma<br />&amp;<br /><em>Liam</em></h1>
+
+    <!-- ============================================================
+         AANPASSEN: Datum van de bruiloft
+         ============================================================ -->
+    <p class="hero-datum">14 juni 2026 &nbsp;·&nbsp; Amsterdam</p>
+
+    <!-- ============================================================
+         AANPASSEN: Welkomstboodschap
+         ============================================================ -->
+    <p class="hero-tekst">
+      We zijn zo blij dat je erbij bent. Op deze dag vieren we de liefde,
+      omringd door de mensen die ons het meest dierbaar zijn.
+    </p>
+  </section>
+
+  <!-- ===== PROGRAMMA ===== -->
+  <section id="programma">
+    <p class="sectie-label">De dag</p>
+    <h2>Programma</h2>
+
+    <!-- ============================================================
+         AANPASSEN: Voeg tijden en omschrijvingen toe of verwijder regels
+         ============================================================ -->
+    <ul class="programma-lijst">
+      <li class="programma-item">
+        <span class="programma-tijd">14:00</span>
+        <span class="programma-lijn"></span>
+        <div class="programma-info">
+          <p class="programma-naam">Ontvangst</p>
+          <p class="programma-omschrijving">Welkom met een glaasje bij de locatie</p>
+        </div>
+      </li>
+      <li class="programma-item">
+        <span class="programma-tijd">15:00</span>
+        <span class="programma-lijn"></span>
+        <div class="programma-info">
+          <p class="programma-naam">Huwelijksceremonie</p>
+          <p class="programma-omschrijving">De officiële plechtigheid</p>
+        </div>
+      </li>
+      <li class="programma-item">
+        <span class="programma-tijd">16:00</span>
+        <span class="programma-lijn"></span>
+        <div class="programma-info">
+          <p class="programma-naam">Cocktailuur &amp; foto's</p>
+          <p class="programma-omschrijving">Drankjes, hapjes en felicitaties</p>
+        </div>
+      </li>
+      <li class="programma-item">
+        <span class="programma-tijd">18:30</span>
+        <span class="programma-lijn"></span>
+        <div class="programma-info">
+          <p class="programma-naam">Diner</p>
+          <p class="programma-omschrijving">Feestelijk diner voor alle gasten</p>
+        </div>
+      </li>
+      <li class="programma-item">
+        <span class="programma-tijd">21:00</span>
+        <span class="programma-lijn"></span>
+        <div class="programma-info">
+          <p class="programma-naam">Feest</p>
+          <p class="programma-omschrijving">Dansen en vieren tot in de late uurtjes!</p>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ===== LOCATIE ===== -->
+  <div id="locatie">
+    <div class="inner">
+      <p class="sectie-label">Waar &amp; wanneer</p>
+      <h2>Locatie</h2>
+      <div class="locatie-grid">
+        <div class="locatie-info">
+
+          <!-- ============================================================
+               AANPASSEN: Naam en adres van de locatie
+               ============================================================ -->
+          <h3>Venue Naam Hier</h3>
+          <p>
+            Voorbeeldstraat 12<br />
+            1234 AB Amsterdam<br />
+            Nederland
+          </p>
+          <p>
+            Parkeren is mogelijk op het terrein.<br />
+            Openbaar vervoer: tram 5, halte Bruiloftplein.
+          </p>
+
+          <!-- ============================================================
+               AANPASSEN: Vervang de href met het echte adres op Google Maps
+               ============================================================ -->
+          <a class="locatie-knop"
+             href="https://maps.google.com/?q=Amsterdam+Centraal"
+             target="_blank" rel="noopener">
+            Routebeschrijving &rarr;
+          </a>
+        </div>
+
+        <div class="kaart">
+          <!-- ============================================================
+               AANPASSEN: Ga naar maps.google.com → zoek locatie →
+               'Delen' → 'Kaart insluiten' → kopieer de src-URL hieronder
+               ============================================================ -->
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2436.042!2d4.9002!3d52.3731!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c609b0d294e6bb%3A0xe56e6aadc6e08a18!2sAmsterdam%20Centraal!5e0!3m2!1snl!2snl!4v1"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Locatie bruiloft">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== DRESSCODE ===== -->
+  <section id="dresscode">
+    <p class="sectie-label">Wat aantrekken</p>
+    <h2>Dresscode</h2>
+
+    <!-- ============================================================
+         AANPASSEN: Pas de dresscode informatie aan naar jullie wensen.
+         Je kunt kaarten toevoegen of verwijderen.
+         ============================================================ -->
+    <div class="dresscode-grid">
+      <div class="dresscode-kaart">
+        <div class="dresscode-icoon">👗</div>
+        <h3>Thema</h3>
+        <p>Chique gelegenheidskledij — cocktailjurken en pakken zijn van harte welkom</p>
+      </div>
+      <div class="dresscode-kaart">
+        <div class="dresscode-icoon">🎨</div>
+        <h3>Kleurenpalet</h3>
+        <p>Wij vragen gasten om wit en creme te vermijden. Pastelkleuren en warme tinten zijn prachtig!</p>
+      </div>
+      <div class="dresscode-kaart">
+        <div class="dresscode-icoon">👠</div>
+        <h3>Praktisch</h3>
+        <p>De ceremonie vindt deels buiten plaats — draag schoenen waar je comfortabel in loopt op gras</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== RSVP ===== -->
+  <div id="rsvp">
+    <div class="inner">
+      <p class="sectie-label">Aanmelden</p>
+      <h2>RSVP</h2>
+
+      <!-- ============================================================
+           AANPASSEN: Aanmeldtekst en deadline
+           ============================================================ -->
+      <p>
+        Laat ons voor <strong style="color:var(--kleur-accent)">1 april 2026</strong> weten
+        of je erbij kunt zijn. Stuur een mail met je naam en eventuele
+        dieetwensen. We kijken ernaar uit!
+      </p>
+
+      <!-- ============================================================
+           AANPASSEN: Vervang het e-mailadres hieronder
+           ============================================================ -->
+      <a class="rsvp-knop" href="mailto:bruiloft@voorbeeld.nl?subject=RSVP%20Emma%20%26%20Liam">
+        Aanmelden via e-mail
+      </a>
+
+      <p class="rsvp-deadline">Graag voor 1 april 2026 reageren</p>
+    </div>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    Wij kunnen niet wachten om dit met jou te vieren &nbsp;♥
+  </footer>
+
+</body>
+</html>
