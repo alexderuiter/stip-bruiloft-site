@@ -332,6 +332,34 @@
       color: var(--kleur-muted);
     }
 
+    /* --------- TAAL-SWITCHER --------- */
+    .taal-switcher {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.85rem 1.25rem 0;
+      font-family: -apple-system, system-ui, sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+    }
+    .taal-switcher button {
+      background: none;
+      border: 0;
+      cursor: pointer;
+      padding: 0.25rem 0.35rem;
+      font: inherit;
+      letter-spacing: inherit;
+      color: var(--kleur-muted);
+      transition: color 0.2s;
+    }
+    .taal-switcher button:hover { color: var(--kleur-accent); }
+    .taal-switcher button.actief { color: var(--kleur-accent); }
+    .taal-switcher .scheider {
+      color: var(--kleur-border);
+      user-select: none;
+    }
+
     /* --------- SMOOTH SCROLL --------- */
     html { scroll-behavior: smooth; }
   </style>
@@ -339,6 +367,15 @@
 <body>
 
   <div class="kaart-wrapper">
+
+  <!-- ===== TAAL-SWITCHER ===== -->
+  <nav class="taal-switcher" aria-label="Language">
+    <button type="button" data-lang="en" class="actief">EN</button>
+    <span class="scheider" aria-hidden="true">·</span>
+    <button type="button" data-lang="nl">NL</button>
+    <span class="scheider" aria-hidden="true">·</span>
+    <button type="button" data-lang="bs">BS</button>
+  </nav>
 
   <!-- ===== HERO ===== -->
   <section id="home">
@@ -348,9 +385,9 @@
 
     <h1>Amela &amp; Henrik</h1>
 
-    <p class="hero-datum">1 August 2026 &nbsp;·&nbsp; Landgoed Singraven</p>
+    <p class="hero-datum" data-i18n="heroDatum">1 August 2026 &nbsp;·&nbsp; Landgoed Singraven</p>
 
-    <p class="hero-tekst">
+    <p class="hero-tekst" data-i18n="heroTekst">
       We are looking forward to celebrating this special day with you!
     </p>
   </section>
@@ -359,17 +396,17 @@
 
   <!-- ===== PROGRAMMA ===== -->
   <section id="programma">
-    <p class="sectie-label">The celebration</p>
-    <h2>Program</h2>
+    <p class="sectie-label" data-i18n="feestLabel">The celebration</p>
+    <h2 data-i18n="programH2">Program</h2>
 
     <div class="dag-kop">
-      <p class="dag-titel">1 August &middot; Landgoed Singraven</p>
+      <p class="dag-titel" data-i18n="dag1Kop">1 August &middot; Landgoed Singraven</p>
       <p class="dag-adres">
-        Molendijk 37, 7591 PT Denekamp
+        <span data-i18n="dag1Adres">Molendijk 37, 7591 PT Denekamp</span>
         <span class="scheiding">·</span>
-        <a href="https://maps.google.com/?q=Landgoed+Singraven+Molendijk+37+Denekamp" target="_blank" rel="noopener">Directions &rarr;</a>
+        <a href="https://maps.google.com/?q=Landgoed+Singraven+Molendijk+37+Denekamp" target="_blank" rel="noopener" data-i18n="directionsBtn">Directions &rarr;</a>
         <br />
-        <em>There should be plenty of parking space.</em>
+        <em data-i18n="parkeren">There should be plenty of parking space.</em>
       </p>
     </div>
     <ul class="programma-lijst">
@@ -377,59 +414,59 @@
         <span class="programma-tijd">14:30</span>
         <span class="programma-lijn"></span>
         <div class="programma-info">
-          <p class="programma-naam">Welcome</p>
+          <p class="programma-naam" data-i18n="welcome">Welcome</p>
         </div>
       </li>
       <li class="programma-item">
         <span class="programma-tijd">15:00</span>
         <span class="programma-lijn"></span>
         <div class="programma-info">
-          <p class="programma-naam">Bride arrives</p>
+          <p class="programma-naam" data-i18n="brideArrives">Bride arrives</p>
         </div>
       </li>
       <li class="programma-item">
         <span class="programma-tijd">15:10</span>
         <span class="programma-lijn"></span>
         <div class="programma-info">
-          <p class="programma-naam">Ceremony</p>
+          <p class="programma-naam" data-i18n="ceremony">Ceremony</p>
         </div>
       </li>
       <li class="programma-item">
         <span class="programma-tijd">16:00</span>
         <span class="programma-lijn"></span>
         <div class="programma-info">
-          <p class="programma-naam">Reception</p>
+          <p class="programma-naam" data-i18n="reception">Reception</p>
         </div>
       </li>
       <li class="programma-item">
         <span class="programma-tijd">19:00</span>
         <span class="programma-lijn"></span>
         <div class="programma-info">
-          <p class="programma-naam">Dinner</p>
+          <p class="programma-naam" data-i18n="dinner">Dinner</p>
         </div>
       </li>
       <li class="programma-item">
         <span class="programma-tijd">21:00</span>
         <span class="programma-lijn"></span>
         <div class="programma-info">
-          <p class="programma-naam">Party</p>
+          <p class="programma-naam" data-i18n="party">Party</p>
         </div>
       </li>
       <li class="programma-item">
         <span class="programma-tijd">00:00</span>
         <span class="programma-lijn"></span>
         <div class="programma-info">
-          <p class="programma-naam">Goodbyes</p>
+          <p class="programma-naam" data-i18n="goodbyes">Goodbyes</p>
         </div>
       </li>
     </ul>
 
     <div class="dag-kop">
-      <p class="dag-titel">2 August &middot; Delden</p>
+      <p class="dag-titel" data-i18n="dag2Kop">2 August &middot; Delden</p>
       <p class="dag-adres">
-        Zuiderhagen 3, 7491 CD Delden
+        <span data-i18n="dag2Adres">Zuiderhagen 3, 7491 CD Delden</span>
         <span class="scheiding">·</span>
-        <a href="https://maps.google.com/?q=Zuiderhagen+3+Delden" target="_blank" rel="noopener">Directions &rarr;</a>
+        <a href="https://maps.google.com/?q=Zuiderhagen+3+Delden" target="_blank" rel="noopener" data-i18n="directionsBtn">Directions &rarr;</a>
       </p>
     </div>
     <ul class="programma-lijst">
@@ -437,8 +474,8 @@
         <span class="programma-tijd">11:00</span>
         <span class="programma-lijn"></span>
         <div class="programma-info">
-          <p class="programma-naam">Brunch</p>
-          <p class="programma-omschrijving">Hosted by Luus and Jozef</p>
+          <p class="programma-naam" data-i18n="brunch">Brunch</p>
+          <p class="programma-omschrijving" data-i18n="brunchHost">Hosted by Luus and Jozef</p>
         </div>
       </li>
     </ul>
@@ -449,19 +486,19 @@
   <!-- ===== RSVP ===== -->
   <div id="rsvp">
     <div class="inner">
-      <p class="sectie-label">Save your seat</p>
-      <h2>RSVP</h2>
+      <p class="sectie-label" data-i18n="rsvpLabel">Save your seat</p>
+      <h2 data-i18n="rsvpH2">RSVP</h2>
 
-      <p>
+      <p data-i18n="rsvpText">
         Please let us know if you will join us in the celebration before
         <strong style="color:var(--kleur-accent)">31 May 2026</strong>.
       </p>
 
-      <a class="rsvp-knop" href="https://docs.google.com/forms/d/e/1FAIpQLSdTR9WoS6H-iGPtRjT39lOy2ASL6-HxnddbZ1oMHu941PVxhQ/viewform" target="_blank" rel="noopener">
+      <a class="rsvp-knop" href="https://docs.google.com/forms/d/e/1FAIpQLSdTR9WoS6H-iGPtRjT39lOy2ASL6-HxnddbZ1oMHu941PVxhQ/viewform" target="_blank" rel="noopener" data-i18n="rsvpBtn">
         RSVP via Google Form
       </a>
 
-      <p class="rsvp-deadline">Please reply before 31 May 2026</p>
+      <p class="rsvp-deadline" data-i18n="rsvpDeadline">Please reply before 31 May 2026</p>
     </div>
   </div>
 
@@ -469,9 +506,9 @@
 
   <!-- ===== CONTACT ===== -->
   <section id="contact">
-    <p class="sectie-label">Questions?</p>
-    <h2>Get in touch</h2>
-    <p>
+    <p class="sectie-label" data-i18n="contactLabel">Questions?</p>
+    <h2 data-i18n="contactH2">Get in touch</h2>
+    <p data-i18n="contactText">
       If you have any questions, please reach out to our master of ceremony,
       <strong>Niek Kouwenhoven</strong>, preferably by e-mail or phone at
       <a href="tel:+31610293746">06&nbsp;10&nbsp;29&nbsp;37&nbsp;46</a>.
@@ -479,11 +516,136 @@
   </section>
 
   <!-- ===== FOOTER ===== -->
-  <footer>
+  <footer data-i18n="footer">
     We can't wait to celebrate this with you
   </footer>
 
   </div><!-- .kaart-wrapper -->
+
+  <script>
+    (function () {
+      const translations = {
+        en: {
+          pageTitle: 'Amela & Henrik — 1 August 2026',
+          heroDatum: '1 August 2026 &nbsp;·&nbsp; Landgoed Singraven',
+          heroTekst: 'We are looking forward to celebrating this special day with you!',
+          feestLabel: 'The celebration',
+          programH2: 'Program',
+          dag1Kop: '1 August &middot; Landgoed Singraven',
+          dag1Adres: 'Molendijk 37, 7591 PT Denekamp',
+          parkeren: 'There should be plenty of parking space.',
+          directionsBtn: 'Directions &rarr;',
+          welcome: 'Welcome',
+          brideArrives: 'Bride arrives',
+          ceremony: 'Ceremony',
+          reception: 'Reception',
+          dinner: 'Dinner',
+          party: 'Party',
+          goodbyes: 'Goodbyes',
+          dag2Kop: '2 August &middot; Delden',
+          dag2Adres: 'Zuiderhagen 3, 7491 CD Delden',
+          brunch: 'Brunch',
+          brunchHost: 'Hosted by Luus and Jozef',
+          rsvpLabel: 'Save your seat',
+          rsvpH2: 'RSVP',
+          rsvpText: 'Please let us know if you will join us in the celebration before <strong style="color:var(--kleur-accent)">31 May 2026</strong>.',
+          rsvpBtn: 'RSVP via Google Form',
+          rsvpDeadline: 'Please reply before 31 May 2026',
+          contactLabel: 'Questions?',
+          contactH2: 'Get in touch',
+          contactText: 'If you have any questions, please reach out to our master of ceremony, <strong>Niek Kouwenhoven</strong>, preferably by e-mail or phone at <a href="tel:+31610293746">06&nbsp;10&nbsp;29&nbsp;37&nbsp;46</a>.',
+          footer: 'We can\'t wait to celebrate this with you'
+        },
+        nl: {
+          pageTitle: 'Amela & Henrik — 1 augustus 2026',
+          heroDatum: '1 augustus 2026 &nbsp;·&nbsp; Landgoed Singraven',
+          heroTekst: 'We kijken er enorm naar uit om deze bijzondere dag met je te vieren!',
+          feestLabel: 'De viering',
+          programH2: 'Programma',
+          dag1Kop: '1 augustus &middot; Landgoed Singraven',
+          dag1Adres: 'Molendijk 37, 7591 PT Denekamp',
+          parkeren: 'Er is voldoende parkeergelegenheid.',
+          directionsBtn: 'Routebeschrijving &rarr;',
+          welcome: 'Ontvangst',
+          brideArrives: 'Aankomst bruid',
+          ceremony: 'Ceremonie',
+          reception: 'Receptie',
+          dinner: 'Diner',
+          party: 'Feest',
+          goodbyes: 'Afscheid',
+          dag2Kop: '2 augustus &middot; Delden',
+          dag2Adres: 'Zuiderhagen 3, 7491 CD Delden',
+          brunch: 'Brunch',
+          brunchHost: 'Bij Luus en Jozef',
+          rsvpLabel: 'Aanmelden',
+          rsvpH2: 'RSVP',
+          rsvpText: 'Laat ons voor <strong style="color:var(--kleur-accent)">31 mei 2026</strong> weten of je erbij bent.',
+          rsvpBtn: 'RSVP via Google Formulier',
+          rsvpDeadline: 'Graag voor 31 mei 2026 reageren',
+          contactLabel: 'Vragen?',
+          contactH2: 'Neem contact op',
+          contactText: 'Heb je vragen? Neem dan contact op met onze ceremoniemeester, <strong>Niek Kouwenhoven</strong>, bij voorkeur via e-mail of telefoon op <a href="tel:+31610293746">06&nbsp;10&nbsp;29&nbsp;37&nbsp;46</a>.',
+          footer: 'We kunnen niet wachten om dit met je te vieren'
+        },
+        bs: {
+          pageTitle: 'Amela & Henrik — 1. august 2026.',
+          heroDatum: '1. august 2026. &nbsp;·&nbsp; Landgoed Singraven',
+          heroTekst: 'Radujemo se da ovaj poseban dan proslavimo s vama!',
+          feestLabel: 'Slavlje',
+          programH2: 'Program',
+          dag1Kop: '1. august &middot; Landgoed Singraven',
+          dag1Adres: 'Molendijk 37, 7591 PT Denekamp',
+          parkeren: 'Trebalo bi biti dovoljno parking mjesta.',
+          directionsBtn: 'Upute za put &rarr;',
+          welcome: 'Dobrodošlica',
+          brideArrives: 'Dolazak mladenke',
+          ceremony: 'Ceremonija',
+          reception: 'Recepcija',
+          dinner: 'Večera',
+          party: 'Zabava',
+          goodbyes: 'Pozdravi',
+          dag2Kop: '2. august &middot; Delden',
+          dag2Adres: 'Zuiderhagen 3, 7491 CD Delden',
+          brunch: 'Brunch',
+          brunchHost: 'Domaćini: Luus i Jozef',
+          rsvpLabel: 'Prijavi se',
+          rsvpH2: 'RSVP',
+          rsvpText: 'Molimo vas da nam javite do <strong style="color:var(--kleur-accent)">31. maja 2026.</strong> da li ćete nam se pridružiti u slavlju.',
+          rsvpBtn: 'RSVP putem Google obrasca',
+          rsvpDeadline: 'Molimo vas da odgovorite do 31. maja 2026.',
+          contactLabel: 'Pitanja?',
+          contactH2: 'Stupite u kontakt',
+          contactText: 'Ako imate pitanja, kontaktirajte našeg majstora ceremonije, <strong>Niek Kouwenhoven</strong>, po mogućnosti putem e-maila ili telefona na <a href="tel:+31610293746">06&nbsp;10&nbsp;29&nbsp;37&nbsp;46</a>.',
+          footer: 'Jedva čekamo da ovo proslavimo s vama'
+        }
+      };
+
+      function setLanguage(lang) {
+        const dict = translations[lang];
+        if (!dict) return;
+        document.documentElement.lang = lang;
+        if (dict.pageTitle) document.title = dict.pageTitle;
+        document.querySelectorAll('[data-i18n]').forEach(function (el) {
+          const key = el.getAttribute('data-i18n');
+          if (dict[key] !== undefined) el.innerHTML = dict[key];
+        });
+        document.querySelectorAll('.taal-switcher button').forEach(function (btn) {
+          btn.classList.toggle('actief', btn.dataset.lang === lang);
+        });
+        try { localStorage.setItem('taal', lang); } catch (e) {}
+      }
+
+      document.querySelectorAll('.taal-switcher button').forEach(function (btn) {
+        btn.addEventListener('click', function () { setLanguage(btn.dataset.lang); });
+      });
+
+      let stored = null;
+      try { stored = localStorage.getItem('taal'); } catch (e) {}
+      const browser = (navigator.language || 'en').slice(0, 2).toLowerCase();
+      const initial = stored || (translations[browser] ? browser : 'en');
+      setLanguage(initial);
+    })();
+  </script>
 
 </body>
 </html>
